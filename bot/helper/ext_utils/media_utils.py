@@ -70,7 +70,9 @@ async def convert_video(listener, video_file, ext, retry=False):
         return False
     async with listener.subprocess_lock:
         listener.subproc = await create_subprocess_exec(
-            *cmd, stdout=PIPE, stderr=PIPE
+            *cmd,
+            stdout=PIPE,
+            stderr=PIPE,
         )
     code = await listener.subproc.wait()
     async with listener.subprocess_lock:
@@ -115,7 +117,9 @@ async def convert_audio(listener, audio_file, ext):
         return False
     async with listener.subprocess_lock:
         listener.subproc = await create_subprocess_exec(
-            *cmd, stdout=PIPE, stderr=PIPE
+            *cmd,
+            stdout=PIPE,
+            stderr=PIPE,
         )
     code = await listener.subproc.wait()
     async with listener.subprocess_lock:
@@ -649,7 +653,9 @@ async def create_sample_video(listener, video_file, sample_duration, part_durati
         return False
     async with listener.subprocess_lock:
         listener.subproc = await create_subprocess_exec(
-            *cmd, stdout=PIPE, stderr=PIPE
+            *cmd,
+            stdout=PIPE,
+            stderr=PIPE,
         )
     code = await listener.subproc.wait()
     async with listener.subprocess_lock:
@@ -784,7 +790,9 @@ async def run_ffmpeg_cmd(listener, ffmpeg, path):
         return False
     async with listener.subprocess_lock:
         listener.subproc = await create_subprocess_exec(
-            *ffmpeg, stdout=PIPE, stderr=PIPE
+            *ffmpeg,
+            stdout=PIPE,
+            stderr=PIPE,
         )
     code = await listener.subproc.wait()
     async with listener.subprocess_lock:

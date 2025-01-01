@@ -207,7 +207,8 @@ class TaskConfig:
         if self.ffmpeg_cmds and not isinstance(self.ffmpeg_cmds, list):
             if self.user_dict.get("ffmpeg_cmds", None):
                 self.ffmpeg_cmds = self.user_dict["ffmpeg_cmds"].get(
-                    self.ffmpeg_cmds, None
+                    self.ffmpeg_cmds,
+                    None,
                 )
             elif "ffmpeg_cmds" not in self.user_dict and Config.FFMPEG_CMDS:
                 self.ffmpeg_cmds = Config.FFMPEG_CMDS.get(self.ffmpeg_cmds, None)
@@ -797,7 +798,9 @@ class TaskConfig:
             return ""
         async with self.subprocess_lock:
             self.subproc = await create_subprocess_exec(
-                *cmd, stdout=PIPE, stderr=PIPE
+                *cmd,
+                stdout=PIPE,
+                stderr=PIPE,
             )
         code = await self.subproc.wait()
         if self.is_cancelled:
