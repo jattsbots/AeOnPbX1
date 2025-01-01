@@ -40,4 +40,4 @@ tenacity
 uv
 uvloop
 xattr
-yt-dlp[default]
+yt-dlp==2024.12.23
